@@ -1,0 +1,14 @@
+VERSION=${VERSION:-1.2.2}
+RELEASE=${RELEASE:-10ef}
+RPMBUILD_DIR="$HOME/rpmbuild"
+
+autoreconf -i --force
+./autogen.sh
+./configure --prefix=/opt/nec/ve/veos --with-release-id=$RELEASE
+make dist
+/bin/cp -f vp-kmod-*.tar.gz kmodtool-vp-e17.sh $RPMBUILD_DIR/SOURCES
+rpmbuild -D "%_topdir $RPMBUILD_DIR" -ba vp-kmod.spec
+if [ "$RPMREPLACE" = "1" ]; then
+    rpm -Uhv --replacepkgs --replacefiles $RPMBUILD_DIR/RPMS/x86_64/vp-kmod-$VERSION-*_$RELEASE.*.rpm $RPMBUILD_DIR/RPMS/x86_64/vp-kmod-devel-$VERSION-*_$RELEASE.*.rpm --force
+fi
+

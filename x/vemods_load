@@ -1,0 +1,9 @@
+modprobe vp
+#echo "module vp +p" > /sys/kernel/debug/dynamic_debug/control
+#echo "file /root/rpmbuild/BUILD/vp-kmod-1.2.2/src/main.c line 618 +p" >/sys/kernel/debug/dynamic_debug/control
+#echo "file /root/rpmbuild/BUILD/vp-kmod-1.2.2/src/main.c line 631 +p" >/sys/kernel/debug/dynamic_debug/control
+modprobe ve_drv
+systemctl start mmm.service
+systemctl start ve-os-state-monitor@*.service
+systemctl start ve-os-launcher@*.service
+

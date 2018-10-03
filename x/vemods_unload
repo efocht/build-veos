@@ -1,0 +1,5 @@
+systemctl stop ve-os-launcher@*.service
+systemctl stop ve-os-state-monitor@*.service
+systemctl stop mmm.service
+rmmod ve_drv vp
+

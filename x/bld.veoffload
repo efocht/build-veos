@@ -1,0 +1,12 @@
+VERSION=${VERSION:-1.2.2}
+RELEASE=${RELEASE:-1ef}
+RPM_BUILDDIR=${HOME}/rpmbuild
+
+./autogen.sh
+./configure --prefix=/opt/nec/ve/veos --localstatedir=/var/opt/nec/ve/veos   --libdir=/opt/nec/ve/veos/lib64
+make dist
+rpmbuild -ta veoffload-$VERSION.tar.gz
+
+if [ "$RPMREPLACE" = "1" ]; then
+    rpm -Uhv $RPM_BUILDDIR/RPMS/x86_64/veoffload-$VERSION-$RELEASE.el7.centos.x86_64.rpm $RPM_BUILDDIR/RPMS/x86_64/veoffload-*-$VERSION-$RELEASE.el7.centos.x86_64.rpm --force
+fi

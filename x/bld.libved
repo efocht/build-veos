@@ -1,0 +1,13 @@
+
+VERSION=${VERSION:-1.2.0}
+RELEASE=${RELEASE:-10ef}
+RPMBUILD_DIR="$HOME/rpmbuild"
+
+./autogen.sh
+./configure --prefix=/opt/nec/ve/veos --with-release-id=$RELEASE
+make dist
+/bin/cp -f libved-*.tar.gz $RPMBUILD_DIR/SOURCES
+rpmbuild -D "%_topdir $RPMBUILD_DIR" -ba libved.spec
+if [ "$RPMREPLACE" = "1" ]; then
+    rpm -Uhv --replacepkgs --replacefiles $RPMBUILD_DIR/RPMS/x86_64/libved-$VERSION-$RELEASE.*.rpm $RPMBUILD_DIR/RPMS/x86_64/libved-devel-$VERSION-$RELEASE.*.rpm --force
+fi

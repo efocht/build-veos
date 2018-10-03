@@ -1,0 +1,15 @@
+VERSION=${VERSION:-1.2.2}
+RELEASE=${RELEASE:-10ef}
+RPMBUILD_DIR="$HOME/rpmbuild"
+
+rsync -av --delete ../v2p/ v2p/
+./autogen.sh
+./configure --prefix=/opt/nec/ve/veos --with-release-id=$RELEASE \
+        --with-systemd-unitdir=/lib/systemd/system
+make dist
+/bin/cp -f ve_drv-*.tar.gz kmodtool-ve_drv-e17.sh $RPMBUILD_DIR/SOURCES
+rpmbuild  -D "%_topdir $RPMBUILD_DIR" -ba ve_drv-kmod.spec
+if [ "$RPMREPLACE" = "1" ]; then
+    rpm -Uhv --replacepkgs --replacefiles $RPMBUILD_DIR/RPMS/x86_64/ve_drv-kmod-$VERSION-*_$RELEASE.*.rpm $RPMBUILD_DIR/RPMS/x86_64/ve_drv-kmod-devel-$VERSION-*_$RELEASE.*.rpm --force
+fi
+
