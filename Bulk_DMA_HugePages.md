@@ -51,7 +51,7 @@ cd ..
 
 ```
 # stop VEOS and VE related services, unload VE modules
-../x/vemods_unload
+x/vemods_unload
 
 # replace installed RPMs by the newly built ones
 RPMREPLACE=1
@@ -73,7 +73,7 @@ cd veos
 cd ..
 
 # load VE modules, start VEOS and VE related services
-../x/vemods_load
+x/vemods_load
 ```
 
 ## Test performance
