@@ -117,6 +117,7 @@ not (hopefully...yet) in the official VEOS tree.**
 Results of the core VE to VH send functions with this modified version are:
 
 **small pages (4k), unpinned buffer**
+
 `# ./scan_ve2vh.sh`
 
 ```
@@ -142,6 +143,7 @@ Results of the core VE to VH send functions with this modified version are:
 ```
 
 **huge pages (2M), unpinned buffer**
+
 `# HUGE=1 ./scan_ve2vh.sh`
 
 ```
