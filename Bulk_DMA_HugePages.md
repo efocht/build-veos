@@ -9,13 +9,13 @@ mkdir BLD
 cd BLD
 GITH="https://github.com/efocht"
 
-for repo in build-veos veos libved ve_drv-kmod vp-kmod vhcall-memtransfer-bm;
+for repo in build-veos veos libved ve_drv-kmod vp-kmod vhcall-memtransfer-bm; do
     git clone $GITH/$repo.git
 done
 
 ln -s build-veos/x .
 
-for repo in veos libved ve_drv-kmod vp-kmod;
+for repo in veos libved ve_drv-kmod vp-kmod; do
     cd $repo
     git checkout dma-bulk-hugepage
     cd ..
