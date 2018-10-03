@@ -119,6 +119,7 @@ Results of the core VE to VH send functions with this modified version are:
 **small pages (4k), unpinned buffer**
 `# ./scan_ve2vh.sh`
 
+```
 |    buff | veos 1.2.2 | v1_64_96 |
 |      kb |  BW MiB/s  | BW MiB/s |
 | ------- | ---------- | -------- |
@@ -138,11 +139,12 @@ Results of the core VE to VH send functions with this modified version are:
 |  262144 |     1644   |     5748 |
 |  524288 |     1734   |     5557 |
 | 1048576 |     1649   |     5527 |
-
+```
 
 **huge pages (2M), unpinned buffer**
 `# HUGE=1 ./scan_ve2vh.sh`
 
+```
 |   buff  | veos 1.2.2 | v1_64_96 |
 |     kb  |  BW MiB/s  | BW MiB/s |
 | ------- | ---------- | -------- |
@@ -162,7 +164,7 @@ Results of the core VE to VH send functions with this modified version are:
 |  262144 |       1698 |   10669  |
 |  524288 |       1772 |   10802  |
 | 1048576 |       1692 |   10872  |
-
+```
 
 The original version of the DMA processing from VEOS is a correct and
 a straight forward way to deal with unpinned buffers by walking and
