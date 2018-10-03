@@ -119,9 +119,9 @@ Results of the core VE to VH send functions with this modified version are:
 **small pages (4k), unpinned buffer**
 `# ./scan_ve2vh.sh`
 
-|         | veos 1.2.2 | v1_64_96 |
-| buff kb |  BW MiB/s  | BW MiB/s |
-|--------:|-----------:|---------:|
+|         |:- veos 1.2.2 -:|:- v1_64_96 -:|
+|:- buff kb -:|:-  BW MiB/s -:|:- BW MiB/s -:|
+| -------:| ----------:| --------:|
 |      32 |      131   |      106 |
 |      64 |      249   |      263 |
 |     128 |      447   |      477 |
@@ -143,9 +143,9 @@ Results of the core VE to VH send functions with this modified version are:
 **huge pages (2M), unpinned buffer**
 `# HUGE=1 ./scan_ve2vh.sh`
 
-|         | veos 1.2.2 | v1_64_96 |
-| buff kb |  BW MiB/s  | BW MiB/s |
-|--------:|-----------:|---------:|
+|         |:- veos 1.2.2 -:|:- v1_64_96 -:|
+|:- buff kb -:|:-  BW MiB/s -:|:- BW MiB/s -:|
+| -------:| ----------:| --------:|
 |      32 |         79 |     110  |
 |      64 |        248 |     291  |
 |     128 |        490 |     550  |
