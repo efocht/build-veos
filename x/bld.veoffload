@@ -8,5 +8,5 @@ make dist
 rpmbuild -ta veoffload-$VERSION.tar.gz
 
 if [ "$RPMREPLACE" = "1" ]; then
-    rpm -Uhv $RPM_BUILDDIR/RPMS/x86_64/veoffload-$VERSION-$RELEASE.el7.centos.x86_64.rpm $RPM_BUILDDIR/RPMS/x86_64/veoffload-*-$VERSION-$RELEASE.el7.centos.x86_64.rpm --force
+    sudo rpm -Uhv $RPM_BUILDDIR/RPMS/x86_64/veoffload-$VERSION-$RELEASE.el7.centos.x86_64.rpm $RPM_BUILDDIR/RPMS/x86_64/veoffload-*-$VERSION-$RELEASE.el7.centos.x86_64.rpm --force
 fi

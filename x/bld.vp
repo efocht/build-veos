@@ -9,6 +9,6 @@ make dist
 /bin/cp -f vp-kmod-*.tar.gz kmodtool-vp-e17.sh $RPMBUILD_DIR/SOURCES
 rpmbuild -D "%_topdir $RPMBUILD_DIR" -ba vp-kmod.spec
 if [ "$RPMREPLACE" = "1" ]; then
-    rpm -Uhv --replacepkgs --replacefiles $RPMBUILD_DIR/RPMS/x86_64/vp-kmod-$VERSION-*_$RELEASE.*.rpm $RPMBUILD_DIR/RPMS/x86_64/vp-kmod-devel-$VERSION-*_$RELEASE.*.rpm --force
+    sudo rpm -Uhv --replacepkgs --replacefiles $RPMBUILD_DIR/RPMS/x86_64/vp-kmod-$VERSION-*_$RELEASE.*.rpm $RPMBUILD_DIR/RPMS/x86_64/vp-kmod-devel-$VERSION-*_$RELEASE.*.rpm --force
 fi
 

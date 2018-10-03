@@ -8,6 +8,6 @@ make dist
 rpmbuild -ta veoffload-veorun-$VERSION.tar.gz
 
 if [ "$RPMREPLACE" = "1" ]; then
-    rpm -Uhv --replacepkgs --replacefiles $RPMBUILD_DIR/RPMS/x86_64/veoffload-veorun-$VERSION-$RELEASE.*.rpm $RPMBUILD_DIR/RPMS/x86_64/veoffload-veorun-*-$VERSION-$RELEASE.*.rpm --force
+    sudo rpm -Uhv --replacepkgs --replacefiles $RPMBUILD_DIR/RPMS/x86_64/veoffload-veorun-$VERSION-$RELEASE.*.rpm $RPMBUILD_DIR/RPMS/x86_64/veoffload-veorun-*-$VERSION-$RELEASE.*.rpm --force
 fi
 

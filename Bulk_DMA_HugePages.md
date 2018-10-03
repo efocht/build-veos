@@ -77,3 +77,20 @@ cd ..
 ```
 
 ## Test performance
+
+If done in the section above, then the benchmarks for ve_send/recv_data() are already built, therefore:
+
+```
+# build memtransfer benchmark
+cd vhcall-memtransfer-bm
+
+./scan_ve2vh.sh
+
+HUGE=1 ./scan_ve2vh.sh
+
+./scan_vh2ve.sh
+
+HUGE=1 ./scan_vh2ve.sh
+
+cd ..
+```
