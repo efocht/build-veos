@@ -57,19 +57,19 @@ x/vemods_unload
 RPMREPLACE=1
 
 cd libved
-. ../x/bld.libved
+../x/bld.libved
 cd ..
 
 cd vp-kmod
-. ../x/bld.vp
+../x/bld.vp
 cd ..
 
 cd ve_drv-kmod
-. ../x/bld.ve_drv
+../x/bld.ve_drv
 cd ..
 
 cd veos
-. ../x/bld.veos
+../x/bld.veos
 cd ..
 
 # load VE modules, start VEOS and VE related services
