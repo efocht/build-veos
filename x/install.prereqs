@@ -1,0 +1,14 @@
+
+yum -y groupinstall "Development Tools"
+yum -y install yum-utils \
+protobuf-c protobuf-c-devel libgudev1 libcap-devel systemd-devel \
+libuuid-devel boost-devel.x86_64 PyYAML protobuf-devel \
+protobuf-compiler protobuf-python lm_sensors texinfo libcap-devel \
+procps-ng-devel
+
+yum -y install libev libev-devel log4c log4c-devel
+yum -y install libyaml-devel emacs gcc-objc gcc-objc++ sharutils ncompress vala python-docutils imake expect dejagnu java-devel-openjdk libselinux-devel lib
+libattr-devel openssl-devel gmp-devel attr strace lm_sensors-devel texinfo ncurses-devel help2man
+yum -y install readline-devel expat-devel texinfo-tex texlive-collection-latexrecommended
+yum -y install python-devel python-pyudev
+yum -y install libdhash-devel
