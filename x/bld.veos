@@ -11,6 +11,6 @@ RELEASE=${RELEASE:-10ef}
 make dist
 RPMBUILD_DIR="$HOME/rpmbuild"
 rpmbuild -D "%_topdir $RPMBUILD_DIR" -ta veos-*.tar.gz
-if [ "RPMREPLACE" = "1" ]; then
+if [ "$RPMREPLACE" = "1" ]; then
     sudo rpm -Uhv --replacepkgs --replacefiles $RPMBUILD_DIR/RPMS/x86_64/veos-$VERSION-$RELEASE.*.rpm $RPMBUILD_DIR/RPMS/x86_64/veos-*-$VERSION-$RELEASE.*.rpm --force
 fi
