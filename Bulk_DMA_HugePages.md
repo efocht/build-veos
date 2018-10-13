@@ -54,7 +54,7 @@ cd ..
 x/vemods_unload
 
 # replace installed RPMs by the newly built ones
-RPMREPLACE=1
+export RPMREPLACE=1
 
 cd libved
 ../x/bld.libved
