@@ -3,7 +3,10 @@ RELEASE=${RELEASE:-1ef}
 RPM_BUILDDIR=${HOME}/rpmbuild
 
 ./autogen.sh
-./configure --prefix=/opt/nec/ve/veos --localstatedir=/var/opt/nec/ve/veos   --libdir=/opt/nec/ve/veos/lib64
+./configure --prefix=/opt/nec/ve/veos \
+            --localstatedir=/var/opt/nec/ve/veos \
+            --libdir=/opt/nec/ve/veos/lib64 \
+            --with-release-id=$RELEASE
 make dist
 rpmbuild -ta veoffload-$VERSION.tar.gz
 

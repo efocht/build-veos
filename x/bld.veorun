@@ -3,7 +3,8 @@ RELEASE=${RELEASE:-1ef}
 RPM_BUILDDIR=${HOME}/rpmbuild
 
 ./autogen.sh
-./configure --prefix=/opt/nec/ve
+./configure --prefix=/opt/nec/ve \
+            --with-release-id=$RELEASE
 make dist
 rpmbuild -ta veoffload-veorun-$VERSION.tar.gz
 
