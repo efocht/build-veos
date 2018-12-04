@@ -17,7 +17,7 @@ ln -s build-veos/x .
 
 for repo in veos libved ve_drv-kmod vp-kmod; do
     cd $repo
-    git checkout dma-bulk-hugepage
+    git checkout tags/v1.3.2_4dma -b dma-bulk-hugepage
     cd ..
 done
 ```

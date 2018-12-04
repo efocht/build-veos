@@ -1,5 +1,5 @@
-VERSION=${VERSION:-1.2.2}
-RELEASE=${RELEASE:-10ef}
+VERSION=${VERSION:-1.3.2}
+RELEASE=${RELEASE:-4dma}
 RPMBUILD_DIR="$HOME/rpmbuild"
 
 rsync -av --delete ../v2p/ v2p/
