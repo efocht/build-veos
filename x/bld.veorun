@@ -1,12 +1,15 @@
-VERSION=${VERSION:-1.3.0}
-RELEASE=${RELEASE:-1ef}
+VERSION=${VERSION:-2.1.0a}
+RELEASE=${RELEASE:-1}
 RPM_BUILDDIR=${HOME}/rpmbuild
+ve_libc=glibc
 
-./autogen.sh
-./configure --prefix=/opt/nec/ve \
+PATH=/opt/nec/ve/bin:$PATH ./autogen.sh
+./configure --host=ve-nec-linux --prefix=/opt/nec/ve \
             --with-release-id=$RELEASE
+
 make dist
-rpmbuild -ta veoffload-veorun-$VERSION.tar.gz
+rpmbuild -D "%_topdir $RPM_BUILDDIR" -D "%libc $ve_libc" \
+       -ta veoffload-veorun-$VERSION.tar.gz
 
 if [ "$RPMREPLACE" = "1" ]; then
     sudo rpm -Uhv --replacepkgs --replacefiles $RPMBUILD_DIR/RPMS/x86_64/veoffload-veorun-$VERSION-$RELEASE.*.rpm $RPMBUILD_DIR/RPMS/x86_64/veoffload-veorun-*-$VERSION-$RELEASE.*.rpm --force
