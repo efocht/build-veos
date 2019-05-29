@@ -1,14 +1,16 @@
-VERSION=${VERSION:-1.3.0}
-RELEASE=${RELEASE:-1ef}
+VERSION=${VERSION:-2.1.0a}
+RELEASE=${RELEASE:-1}
 RPM_BUILDDIR=${HOME}/rpmbuild
+ve_libc=glibc
 
-./autogen.sh
+PATH=/opt/nec/ve/bin:$PATH ./autogen.sh
 ./configure --prefix=/opt/nec/ve/veos \
             --localstatedir=/var/opt/nec/ve/veos \
             --libdir=/opt/nec/ve/veos/lib64 \
+            --with-prefix=/opt/nec/ve \
             --with-release-id=$RELEASE
 make dist
-rpmbuild -ta veoffload-$VERSION.tar.gz
+rpmbuild -D "%_topdir $RPM_BUILDDIR" -D "%libc $ve_libc" -ta veoffload-$VERSION.tar.gz
 
 if [ "$RPMREPLACE" = "1" ]; then
     sudo rpm -Uhv $RPM_BUILDDIR/RPMS/x86_64/veoffload-$VERSION-$RELEASE.el7.centos.x86_64.rpm $RPM_BUILDDIR/RPMS/x86_64/veoffload-*-$VERSION-$RELEASE.el7.centos.x86_64.rpm --force
